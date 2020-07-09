@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+
+
+import time
+from termcolor import cprint
+import numpy as np
+from statistics import *
+from random import *
+
+
+
+def find_pivot(arr):
+  mid = len(arr)//2
+  choice1 = int(arr[0])
+  choice2 = int(arr[mid])
+  choice3 = int(arr[-1])
+  list_of_pivots = [choice1, choice2, choice3]
+  pivot = median(list_of_pivots)
+  
+  return pivot
+
+#Bringing the pivot to the correct position
+
+def partition(arr2):
+  arr2 = list(arr2)
+  
+  x = []
+  global y
+  y = arr2.copy()
+  j = 0
+  i = -1
+  global pivot1
+  pivot1 = find_pivot(arr2)
+  
+
+
+
+  for n in range(len(arr2)*len(arr2)**4):
+    if j == len(arr2) - 1:
+      j = 0
+      i = -1
+    if int(arr2[j]) <= pivot1:
+      i += 1
+      arr2[j], arr2[i] = arr2[i], arr2[j]
+      j += 1
+    
+    elif int(arr2[j]) > pivot1:
+      j += 1
+  
+  return arr2
+
+
+
+  
+
+
+
+  
+
+lary = input("Give a list to be sorted: ")
+
+lary = list(lary)
+
+
+
+
+
+#partition2 = partition(part1)
+#partition3 = partition(part2)
+#cprint("Partition 2: ", "red")
+#print(partition2)
+#cprint("Partition 3: ", "red")
+#print(partition3)
+
+cprint("Final Sort (Partition 4): ", "red")
+while True: 
+  for num in range(len(lary)):
+    json = 0
+
+    number = 0
+    cprint("Partition " + str(number), "red")
+    if json == 0:
+
+      partition1 = partition(lary)
+      print(partition1)
+      dev = partition1.index(str(pivot1))
+      part1 = partition1[: dev]
+      part2 = partition1[dev: ]
+
+      number += 1
+      json +=  1
+    elif json != 0:
+      dev = partition1.index(str(pivot1))
+      part1 = partition1[: dev]
+      part2 = partition1[dev: ]
+      number += 1
+      json +=  1
+  final = part1 + part2
+  list_index = 0
+  if list_index == len(final)-1:
+    list_index = 0
+    break
+    cprint("Search Complete", "green")
+    print(final)
+  for items in range(len(final)):
+    if final[list_index] < final[list_index+1]:
+      list_index += 1
+    elif final[list_index] > final[list_index+1]:
+      partition(final)
+      list_index += 1
+
+print(final_partition)
+
+
+
+
+
+
+
+
+
+
+
+
+#Quicksorting the left and right parts of the array  
+
+#Recursively
+
+
+
+
+
+
+
+
+
+
+    
